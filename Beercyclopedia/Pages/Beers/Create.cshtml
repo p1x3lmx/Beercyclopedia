@@ -1,0 +1,29 @@
+@page
+@model Beercyclopedia.Pages.Beers.CreateModel
+
+<form method="post">
+    <div class="border pt-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Add a New Beer</h2>
+        </div>
+        <hr/>
+        <div class="mb-3">
+            Beer Name:
+            <input asp-for="Beer.Name" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            Select Brand:
+            <select asp-for="@Model.Beer.BrandId" asp-items="Model.Brands" class="form-select">
+                <option>Pick the brand...</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            Select Style:
+            <select asp-for="@Model.Beer.StyleId" asp-items="Model.Styles" class="form-select">
+                <option>Pick the style...</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px;">Add Beer</button>
+
+    </div>
+</form>

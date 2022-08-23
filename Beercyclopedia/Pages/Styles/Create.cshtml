@@ -1,0 +1,18 @@
+@page
+@model Beercyclopedia.Pages.Styles.CreateModel
+
+
+<form method="post">
+    <div class="border pt-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Add a New Styler</h2>
+        </div>
+        <hr/>
+        <div class="mb-3">
+            Style Name:
+            <input asp-for="Style.Name" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px;">Add Style</button>
+
+    </div>
+</form>
