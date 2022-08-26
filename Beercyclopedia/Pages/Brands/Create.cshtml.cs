@@ -22,8 +22,13 @@ public class CreateModel : PageModel
     
     public async Task<IActionResult> OnPost(Brand brand)
     {
-        await _db.Brands.AddAsync(brand);
-        await _db.SaveChangesAsync();
+        if (ModelState.IsValid)
+        {
+            await _db.Brands.AddAsync(brand);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
+
         return RedirectToPage("Index");
     }
 }
