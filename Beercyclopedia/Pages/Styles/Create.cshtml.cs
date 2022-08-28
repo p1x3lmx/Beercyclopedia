@@ -22,9 +22,12 @@ public class CreateModel : PageModel
     
     public async Task<IActionResult> OnPost(Style style)
     {
-        await _db.Styles.AddAsync(style);
-        await _db.SaveChangesAsync();
+        if (ModelState.IsValid)
+        {
+            await _db.Styles.AddAsync(style);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
         return RedirectToPage("Index");
-
     }
 }
