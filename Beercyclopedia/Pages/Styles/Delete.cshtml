@@ -1,0 +1,25 @@
+@page
+@using Beercyclopedia.Model
+@model Beercyclopedia.Pages.Styles.DeleteModel
+
+<form method="post">
+    <input hidden asp-for="Style.Id"/>
+    <div class="border pt-3 mt-4">
+        <h2 class="text-primary pl-3">Delete Style</h2>
+        <hr/>
+        <div class="row pb-2">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3">
+                <p>The Style to delete is @Model.Style.Name</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="Shared/_ValidationScriptsPartial"/>
+    }
+}
