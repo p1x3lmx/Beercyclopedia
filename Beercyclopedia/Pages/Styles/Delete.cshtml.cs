@@ -19,7 +19,8 @@ public class DeleteModel : PageModel
     
     public void OnGet(int id)
     {
+        //var isStyleInUse = _db.Beers.FirstOrDefault((s => s.Styles.Id == id));
         Style = _db.Styles.Find(id);
-
     }
+    
 }
