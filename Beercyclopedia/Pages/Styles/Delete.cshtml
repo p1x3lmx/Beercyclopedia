@@ -11,16 +11,25 @@
             <div asp-validation-summary="All"></div>
             <div class="mb-3">
                 @{
-                    if (Model.isInuse == null)
+                    if (Model.IsInUse)
+                    {
+                        <p>The Style is in use you can not delete this. </p>
+                    }
+                    else  
                     {
                         <p>The style is not used it's safe to delete.</p>
+                        <p>The Style to delete is @Model.Style.Name</p>
                     }
                 }
-                <p>The Style to delete is @Model.Style.Name</p>
             </div>
         </div>
         <a asp-page="Index" class="btn btn-primary mx-0">Return</a>
-        <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+        @{
+            if (!Model.IsInUse)
+            {
+                <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+            }
+        }
     </div>
 </form>
 

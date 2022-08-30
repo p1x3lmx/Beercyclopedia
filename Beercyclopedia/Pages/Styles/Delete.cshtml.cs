@@ -1,5 +1,6 @@
 using Beercyclopedia.Data;
 using Beercyclopedia.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,8 +10,9 @@ public class DeleteModel : PageModel
 {
     private readonly ApplicationDbContext _db;
     
+    [BindProperty]
     public Style Style { get; set; }
-    public int isInuse;
+    public bool IsInUse { get; set; }
 
     public DeleteModel(ApplicationDbContext db)
     {
@@ -19,8 +21,21 @@ public class DeleteModel : PageModel
     
     public void OnGet(int id)
     {
-        //var isStyleInUse = _db.Beers.FirstOrDefault((s => s.Styles.Id == id));
+        var firstFound = _db.Beers.FirstOrDefault((s => s.Styles.Id == id));
+        if (firstFound != null)
+        {
+            IsInUse = true;
+            Style = _db.Styles.Find(id);
+        }
         Style = _db.Styles.Find(id);
     }
-    
+
+    public async Task<IActionResult> OnPost()
+    {
+        _db.Styles.Remove(Style);
+        await _db.SaveChangesAsync();
+        return RedirectToPage("Index");
+
+    }
+
 }
