@@ -1,0 +1,40 @@
+@page
+@model Beercyclopedia.Pages.Brands.DeleteModel
+
+<form method="post">
+    <input hidden asp-for="Brand.Id"/>
+    <div class="border pt-3 mt-4">
+        <h2 class="text-primary pl-3">Delete Style</h2>
+        <hr/>
+        <div class="row pb-2">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3">
+                @{
+                    if (Model.IsInUse)
+                    {
+                        <p>The Brand is in use you can not delete this. </p>
+                    }
+                    else  
+                    {
+                        <p>The brand is not used it's safe to delete.</p>
+                        <p>The Style to delete is @Model.Brand.Name</p>
+                    }
+                }
+            </div>
+        </div>
+        <a asp-page="Index" class="btn btn-primary mx-0">Return</a>
+        @{
+            if (!Model.IsInUse)
+            {
+                <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+            }
+        }
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="Shared/_ValidationScriptsPartial"/>
+    }
+}
