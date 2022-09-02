@@ -28,5 +28,13 @@ public class DeleteModel : PageModel
         }
         Brand = _db.Brands.Find(id);
     }
+    
+    public async Task<IActionResult> OnPost()
+    {
+        _db.Brands.Remove(Brand);
+        await _db.SaveChangesAsync();
+        return RedirectToPage("Index");
+
+    }
         
 }
