@@ -25,6 +25,9 @@
             <th>
                 Style
             </th>
+            <th>
+                Rating
+            </th>
             <th></th>
         </tr>
         </thead>
@@ -32,10 +35,11 @@
         @foreach (var obj in Model.Beers)
         {
             <tr>
-                <td width="30%">@obj.Name</td>
-                <td width="30%">@obj.Brands.Name</td>
-                <td width="30%">@obj.Styles.Name</td>
-                <td width="10%"><a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary" mx-0><i class="bi bi-pencil-square" role="img" aria-label="Edit" alt="Edit"></i></a>
+                <td width="20%">@obj.Name</td>
+                <td width="20%">@obj.Brands.Name</td>
+                <td width="20%">@obj.Styles.Name</td>
+                <td width="20%"></td>
+                <td width="20%"><a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary" mx-0><i class="bi bi-pencil-square" role="img" aria-label="Edit" alt="Edit"></i></a>
                     <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger" mx-0><i class="bi bi-trash" role="img" aria-label="Trash" alt="Delete"></i></a>
                 </td>
             </tr>
