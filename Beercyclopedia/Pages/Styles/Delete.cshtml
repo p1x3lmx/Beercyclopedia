@@ -23,13 +23,15 @@
                 }
             </div>
         </div>
-        <a asp-page="Index" class="btn btn-primary mx-0">Return</a>
-        @{
-            if (!Model.IsInUse)
-            {
-                <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+        <div class="mb-3">
+            <a asp-page="Index" class="btn btn-primary m-2">Return</a>
+            @{
+                if (!Model.IsInUse)
+                {
+                    <button type="submit" class="btn btn-danger m-2" style="width:150px;">Delete</button>
+                }
             }
-        }
+        </div>
     </div>
 </form>
 
