@@ -36,6 +36,9 @@ namespace Beercyclopedia.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<int>("StyleId")
                         .HasColumnType("int");
 

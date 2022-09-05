@@ -13,6 +13,8 @@ public class Beer
     public int BrandId { get; set; }
     [Required]
     public int StyleId { get; set; }
+    [Range(1, 5)]
+    public int Rating { get; set; }
     [ValidateNever]
     public Brand Brands { get; set; }
     [ValidateNever]
