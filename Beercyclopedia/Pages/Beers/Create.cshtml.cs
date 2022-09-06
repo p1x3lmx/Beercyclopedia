@@ -28,8 +28,12 @@ public class CreateModel : PageModel
 
     public async Task<IActionResult> OnPost(Beer beer)
     {
-        await _db.Beers.AddAsync(beer);
-        await _db.SaveChangesAsync();
+        if (ModelState.IsValid)
+        {
+            await _db.Beers.AddAsync(beer);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
         return RedirectToPage("Index");
     }
 }
