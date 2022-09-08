@@ -23,7 +23,6 @@ public class CreateModel : PageModel
     {
         Brands = new SelectList(_db.Brands, nameof(Brand.Id), nameof(Brand.Name));
         Styles = new SelectList(_db.Styles, nameof(Style.Id), nameof(Style.Name));
-
     }
 
     public async Task<IActionResult> OnPost(Beer beer)
@@ -34,6 +33,8 @@ public class CreateModel : PageModel
             await _db.SaveChangesAsync();
             return RedirectToPage("Index");
         }
+        Brands = new SelectList(_db.Brands, nameof(Brand.Id), nameof(Brand.Name));
+        Styles = new SelectList(_db.Styles, nameof(Style.Id), nameof(Style.Name));
         return Page();
     }
 }
