@@ -6,7 +6,7 @@ public class Style
 {
     public int Id { get; set; }
     
-    [Required]
+    [Required(ErrorMessage = "Please enter a valid style name.")]
     public string Name { get; set; }
     
 }
