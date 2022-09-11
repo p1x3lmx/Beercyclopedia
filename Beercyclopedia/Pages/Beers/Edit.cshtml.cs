@@ -34,6 +34,8 @@ public class EditModel : PageModel
             await _db.SaveChangesAsync();
             return RedirectToPage("Index");
         }
-        return RedirectToPage("Index");
+        Styles = new SelectList(_db.Styles, nameof(Style.Id), nameof(Style.Name));
+        Brands = new SelectList(_db.Brands, nameof(Brand.Id), nameof(Brand.Name));
+        return Page();
     }
 }
