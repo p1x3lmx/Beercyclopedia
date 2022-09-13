@@ -11,8 +11,10 @@
             <div class="mb-3">
                 Style Name:
                 <input asp-for="Style.Name" class="form-control"/>
+                <span asp-validation-for="Style.Name" class="text-danger"></span>
             </div>
         </div>
+        <a asp-page="Index" class="btn btn-primary m-2">Return</a>
         <button type="submit" class="btn btn-primary" style="width:150px;">Update</button>
     </div>
 </form>

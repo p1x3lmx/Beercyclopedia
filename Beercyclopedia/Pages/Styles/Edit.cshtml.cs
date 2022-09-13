@@ -29,7 +29,7 @@ public class EditModel : PageModel
             await _db.SaveChangesAsync();
             return RedirectToPage("Index");
         }
-        return RedirectToPage("Index");
+        return Page();
     }
     
     
