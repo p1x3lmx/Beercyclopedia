@@ -39,8 +39,17 @@
                 <td width="25%">@obj.Name</td>
                 <td width="25%">@obj.Brands.Name</td>
                 <td width="20%">@obj.Styles.Name</td>
-                <td width="20%">@obj.Rating</td>
-                <td width="10%"><a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary btn-sm" mx-0><i class="bi bi-pencil-square" role="img" aria-label="Edit" alt="Edit"></i></a>
+                <td width="20%">
+                            @{
+                                for (int i = 0;  i < @obj.Rating; i++)
+                                {
+                                    <i class="bi bi-star-fill"></i>
+                                }
+                            }
+                </td>
+                <td width="10%">
+                    <a asp-page="Detail" asp-route-id="@obj.Id" class="btn btn-primary btn-sm" mx-0><i class="bi bi-card-text" role="img" aria-label="Detail" alt="Detail"></i></a>
+                    <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-secondary btn-sm" mx-0><i class="bi bi-pencil-square" role="img" aria-label="Edit" alt="Edit"></i></a>
                     <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger btn-sm" mx-0><i class="bi bi-trash" role="img" aria-label="Trash" alt="Delete"></i></a>
                 </td>
             </tr>
