@@ -1,0 +1,20 @@
+@page
+@using Beercyclopedia.Model
+@model Beercyclopedia.Pages.Beers.DeleteModel
+
+<form method="post" xmlns="http://www.w3.org/1999/html">
+<div class="container p-3">
+    <div class="row">
+        <h1 class="text-primary">Delete Confirmation</h1>
+        <hr/>
+    </div>
+    
+    <br/><br/>
+    <div>
+        <h3>Do you want to delete @Model.Beer.Name?</h3>
+        <p>Please confirm delete.</p>
+        <a asp-page="Index" class="btn btn-primary m-2">Return</a>
+        <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+    </div>
+</div>
+</form>
