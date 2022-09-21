@@ -30,7 +30,7 @@ public class IndexModel : PageModel
         
         Beer BeerDuplicate = new Beer()
         {
-            Name = Beer.Name,
+            Name = $"{Beer.Name} Duplicate",
             BrandId = Beer.BrandId,
             StyleId = Beer.StyleId,
             Rating = Beer.Rating
