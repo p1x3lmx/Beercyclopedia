@@ -36,7 +36,7 @@
         @foreach (var obj in Model.Beers)
         {
             <tr>
-                <td width="25%">@obj.Name</td>
+                <td width="25%"><a asp-page="Detail" asp-route-id="@obj.Id" class="link-dark">@obj.Name</a></td>
                 <td width="25%">@obj.Brands.Name</td>
                 <td width="20%">@obj.Styles.Name</td>
                 <td width="15%">
