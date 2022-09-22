@@ -1,25 +1,28 @@
 @page
 @model Beercyclopedia.Pages.Beers.DetailModel
 
-<div class="container p-3">
-    <div class="row">
-        <h1 class="text-primary">Beer Details</h1>
-        <hr/>
+<div class="border pt-3 mt-4">
+    <h1 class="text-primary">Beer Details</h1>
+    <hr/>
+    <div class="row pb-2">
+    
+        <div class="mb-3">
+        
+            <p>Beer Name: @Model.Beer.Name</p>
+            <p>Brand Brand: @Model.Brand.Name</p>
+            <p>Model Style: @Model.Style.Name</p>
+    
+            <p> Rating: 
+                @{
+                    for (int i = 0;  i < @Model.Beer.Rating; i++)
+                    {
+                        <i class="bi bi-star-fill"></i>
+                    }
+                }
+            </p>
+            <a asp-page="Index" class="btn btn-primary m-2">Return</a>
+        </div>
+    
     </div>
-    
-    <br/><br/>
-    
-    <p>Beer Name: @Model.Beer.Name</p>
-    <p>Brand Brand: @Model.Brand.Name</p>
-    <p>Model Style: @Model.Style.Name</p>
-    
-    <p> Rating: 
-        @{
-            for (int i = 0;  i < @Model.Beer.Rating; i++)
-            {
-                <i class="bi bi-star-fill"></i>
-            }
-        }
-    </p>
     
 </div>
