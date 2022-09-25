@@ -15,6 +15,9 @@ public class Beer
     public int StyleId { get; set; }
     [Range(1, 5, ErrorMessage = "Rating Value for {0} must be {1} and {2}")]
     public int Rating { get; set; }
+    [Range(0, 200, ErrorMessage = "IBU Value should be between {1} and {2}")]
+    public int IBU { get; set; }
+    public string Description { get; set; }
     [ValidateNever]
     public Brand Brands { get; set; }
     [ValidateNever]
