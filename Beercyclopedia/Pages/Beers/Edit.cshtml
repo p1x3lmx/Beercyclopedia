@@ -9,28 +9,38 @@
         <div class="row pb-2">
             <div asp-validation-summary="All"></div>
             <div class="mb-3">
-                Beer Name:
+                <p>Beer Name:</p>
                 <input asp-for="Beer.Name" class="form-control"/>
                 <span asp-validation-for="Beer.Name" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                Select Brand:
+                <p>Select Brand:</p>
                 <select asp-for="Beer.BrandId" asp-items="Model.Brands" class="form-select">
                     <option>Pick the brand...</option>
                 </select>
                 <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                Select Style:
+                <p>Select Style:</p>
                 <select asp-for="Beer.StyleId" asp-items="Model.Styles" class="form-select">
                     <option>Pick the style...</option>
                 </select>
                 <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
             </div>
             <div class="mb-3">
+                <p>IBU:</p>
+                <input asp-for="Beer.IBU" class="form-control"/>
+                <span asp-validation-for="Beer.IBU" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
                 Rating:
                 <input type="number" asp-for="Beer.Rating" class="form-control"/>
                 <span asp-validation-for="Beer.Rating" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <p>Beer Description:</p>
+                <textarea asp-for="Beer.Description" class="form-control"></textarea>
+                <span asp-validation-for="Beer.Description" class="text-danger"></span>
             </div>
         </div>
         <a asp-page="Index" class="btn btn-primary m-2">Return</a>
