@@ -33,7 +33,9 @@ public class IndexModel : PageModel
             Name = $"{Beer.Name} Duplicate",
             BrandId = Beer.BrandId,
             StyleId = Beer.StyleId,
-            Rating = Beer.Rating
+            Rating = Beer.Rating,
+            IBU = Beer.IBU,
+            Description = Beer.Description
         };
         await _db.Beers.AddAsync(BeerDuplicate);
         await _db.SaveChangesAsync();
