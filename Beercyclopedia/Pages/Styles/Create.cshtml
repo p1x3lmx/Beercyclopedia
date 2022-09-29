@@ -3,17 +3,18 @@
 
 
 <form method="post">
+    <div class="row">
     <div class="border pt-3 mt-4">
         <div class="row pb-2">
             <h2 class="text-primary pl-3">Add a New Style</h2>
-        </div>
         <hr/>
+        </div>
         <div class="mb-3">
-            Style Name:
+            <p>Style Name: </p>
             <input asp-for="Style.Name" class="form-control"/>
         </div>
         <a asp-page="Index" class="btn btn-primary m-2">Return</a>
         <button type="submit" class="btn btn-danger" style="width:150px;">Add Style</button>
-
+        </div>
     </div>
 </form>
