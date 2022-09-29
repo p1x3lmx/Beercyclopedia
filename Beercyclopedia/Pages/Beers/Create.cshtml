@@ -2,36 +2,47 @@
 @model Beercyclopedia.Pages.Beers.CreateModel
 
 <form method="post" xmlns="http://www.w3.org/1999/html">
-    <div class="border pt-3 mt-4">
-        <div class="row pb-2">
-            <h2 class="text-primary pl-3">Add a New Beer</h2>
-        </div>
-        <hr/>
-        <div class="mb-3">
-            Beer Name:
-            <input asp-for="Beer.Name" class="form-control"/>
-            <span asp-validation-for="Beer.Name" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            Select Brand:
-            <select asp-for="@Model.Beer.BrandId" asp-items="Model.Brands" class="form-select">
-                <option>Pick the brand...</option>
-            </select>
-            <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            Select Style:
-            <select asp-for="@Model.Beer.StyleId" asp-items="Model.Styles" class="form-select">
-                <option>Pick the style...</option>
-            </select>
-            <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            Rating:
-            <input asp-for="Beer.Rating" class="form-control" value="0"/>
-            <span asp-validation-for="Beer.Rating" class="text-danger"></span>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:150px;">Add Beer</button>
-
+    <div class="row">
+        <div class="border pt-3 mt-4">
+            <div class="row pb-2">
+                <h2 class="text-primary pl-3">Add a New Beer</h2>
+            <hr/>
+            </div>
+            <div class="mb-3">
+                <p>Beer Name: </p>
+                <input asp-for="Beer.Name" class="form-control"/>
+                <span asp-validation-for="Beer.Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <p>Select Brand: </p>
+                <select asp-for="@Model.Beer.BrandId" asp-items="Model.Brands" class="form-select">
+                    <option>Pick the brand...</option>
+                </select>
+                <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <p>Select Style: </p>
+                <select asp-for="@Model.Beer.StyleId" asp-items="Model.Styles" class="form-select">
+                    <option>Pick the style...</option>
+                </select>
+                <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <p>Rating: </p>
+                <input asp-for="Beer.Rating" class="form-control" value="0"/>
+                <span asp-validation-for="Beer.Rating" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <p>IBU: </p>
+                <input asp-for="@Model.Beer.IBU" class="form-control"/>
+                <span asp-validation-for="Beer.IBU" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <p>Description:</p>
+                <textarea asp-for="Beer.Description" class="form-control"></textarea>
+                <span asp-validation-for="Beer.Description" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:150px;">Add Beer</button>
+        </div>  
     </div>
 </form>
