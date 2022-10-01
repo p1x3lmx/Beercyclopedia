@@ -42,7 +42,8 @@
                 <textarea asp-for="Beer.Description" class="form-control"></textarea>
                 <span asp-validation-for="Beer.Description" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:150px;">Add Beer</button>
+            <a asp-page="Index" class="btn btn-primary m-2">Return</a>
+            <button type="submit" class="btn btn-danger" style="width:150px;">Add Beer</button>
         </div>  
     </div>
 </form>
