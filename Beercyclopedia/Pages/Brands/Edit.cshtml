@@ -2,10 +2,13 @@
 @model Beercyclopedia.Pages.Brands.EditModel
 
 <form method="post">
-    <input hidden asp-for="Brand.Id"/>
-    <div class="border pt-3 mt-4">
-        <h2 class="text-primary pl-3">Edit Brand</h2>
-        <hr/>
+    <div class="row">
+        <div class="border pt-3 mt-4">
+        <input hidden asp-for="Brand.Id"/>
+        <dib class="row pb-2">
+            <h2 class="text-primary pl-3">Edit Brand</h2>
+            <hr/>
+        </dib>
         <div class="row pb-2">
             <div asp-validation-summary="All"></div>
         </div>
@@ -16,6 +19,7 @@
         </div>
         <a asp-page="Index" class="btn btn-primary m-2">Return</a>
         <button type="submit" class="btn btn-danger" style="width:150px;">Update</button>
+    </div>
     </div>
 </form>
 
