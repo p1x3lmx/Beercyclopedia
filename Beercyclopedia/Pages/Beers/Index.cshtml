@@ -16,7 +16,7 @@
         <thead>
         <tr>
             <th>
-                Beer
+                <a asp-page="Index" asp-route-sortOrder="@Model.IdSort" class="link-dark">Name</a>
             </th>
             <th>
                 Brand
@@ -25,7 +25,7 @@
                 Style
             </th>
             <th>
-                Rating
+                <a asp-page="Index" asp-route-sortOrder="@Model.RatingSort" class="link-dark">@Html.DisplayNameFor(model => model.Beers[0].Rating)</a>
             </th>
             <th>
                 Actions

@@ -9,8 +9,13 @@ namespace Beercyclopedia.Pages.Beers;
 public class IndexModel : PageModel
 {
     private readonly ApplicationDbContext _db;
-    public IEnumerable<Beer> Beers { get; set; }
-    public IEnumerable<Brand> Brands { get; set; }
+    //public IQueryable<Beer> Beers { get; set; }
+    public IList<Beer> Beers { get; set; }
+    public IQueryable<Brand> Brands { get; set; }
+
+    public string IdSort { get; set; }
+    public string RatingSort { get; set; }
+    public string CurrentSort { get; set; }
     public Beer Beer { get; set; }
     public string Message { get; set; }
 
@@ -19,9 +24,34 @@ public class IndexModel : PageModel
         _db = db;
     }
     
-    public void OnGet()
+    /*public void OnGet()
     {
         Beers = _db.Beers.Include(b => b.Brands).Include(b=>b.Styles);
+    }*/
+
+    public async Task OnGetAsync(string sortOrder)
+    {
+        IdSort = String.IsNullOrEmpty(sortOrder) ? "id_desc": "";
+        RatingSort = sortOrder == "Rating" ? "rating_desc" : "Rating";
+        IQueryable<Beer> beerIQ = from s in _db.Beers select s;
+
+        switch (sortOrder)
+        {
+            case "id_desc":
+                beerIQ = beerIQ.OrderByDescending(s => s.Id);
+                break;
+            case "Rating":
+                beerIQ = beerIQ.OrderBy(s => s.Rating);
+                break;
+            case "rating_desc":
+                beerIQ = beerIQ.OrderByDescending(s => s.Rating);
+                break;
+            default:
+                beerIQ = beerIQ.OrderBy(s => s.Id);
+                break;
+        }
+
+        Beers = await beerIQ.Include(b => b.Brands).Include(b => b.Styles).AsNoTracking().ToListAsync();
     }
 
     public async Task<IActionResult> OnPostDuplicate(int id)
