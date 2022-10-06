@@ -28,9 +28,12 @@
         @foreach (var obj in Model.Styles)
         {
             <tr>
-                <td width="80%">@obj.Name</td>
+                <td width="90%">@obj.Name</td>
                 <td>
-                    <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-0 btn-sm"><i class="bi bi-pencil-square" role="img" aria-label="Edit"></i></a>
+                    <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-secondary mx-0 btn-sm"><i class="bi bi-pencil-square" role="img" aria-label="Edit"></i></a>
+                    <form asp-page-handler="duplicate" method="post" class="form-check-inline mx-0" asp-route-id="@obj.Id">
+                        <button class="btn btn-primary btn-sm"><i class="bi-plus-square-fill" role="img" aria-label="Duplicate" alt="Duplicate"></i></button>
+                    </form>
                     <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-0 btn-sm"><i class="bi bi-trash" role="img" aria-label="Delete"></i></a>
                 </td>
             </tr>
