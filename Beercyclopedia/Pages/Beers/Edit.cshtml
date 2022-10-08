@@ -2,11 +2,12 @@
 @model Beercyclopedia.Pages.Beers.EditModel
 
 <form method="post">
+    <div class="row">
     <input hidden asp-for="Beer.Id"/>
     <div class="border pt-3 mt-4">
         <h2 class="text-primary pl-3">Edit Beer</h2>
-        <hr/>
         <div class="row pb-2">
+        <hr/>
             <div asp-validation-summary="All"></div>
             <div class="mb-3">
                 <p>Beer Name:</p>
@@ -45,6 +46,7 @@
         </div>
         <a asp-page="Index" class="btn btn-primary m-2">Return</a>
         <button type="submit" class="btn btn-danger" style="width:150px;">Update</button>
+    </div>
     </div>
 </form>
 
