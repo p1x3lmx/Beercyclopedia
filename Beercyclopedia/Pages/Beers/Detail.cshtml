@@ -1,11 +1,12 @@
 @page
 @model Beercyclopedia.Pages.Beers.DetailModel
 
-<div class="border pt-3 mt-4">
-    <h1 class="text-primary">Beer Details</h1>
-    <hr/>
-    <div class="row pb-2">
-        <div class="mb-3">
+<div class="row">
+    <div class="border pt-3 mt-4">
+        <div class="row pb-2">
+        <h1 class="text-primary">Beer Details</h1>
+        <hr/>
+            <div class="mb-3">
                 <p><strong>Beer Name:</strong> @Model.Beer.Name</p>
                 <p><strong>Brand Brand:</strong> @Model.Brand.Name</p>
                 <p><strong>Model Style:</strong> @Model.Style.Name</p>
@@ -21,5 +22,6 @@
                 <p><strong>Beer Description:</strong> @Model.Beer.Description</p>
                 <a asp-page="Index" class="btn btn-primary m-2">Return</a>
             </div>
+        </div>
     </div>
 </div>
