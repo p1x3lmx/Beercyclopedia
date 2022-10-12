@@ -9,11 +9,11 @@ namespace Beercyclopedia.Pages.Beers;
 public class IndexModel : PageModel
 {
     private readonly ApplicationDbContext _db;
-    //public IQueryable<Beer> Beers { get; set; }
     public IList<Beer> Beers { get; set; }
     public IQueryable<Brand> Brands { get; set; }
 
     public string IdSort { get; set; }
+    public string BrandSort { get; set; }
     public string RatingSort { get; set; }
     public string CurrentSort { get; set; }
     public Beer Beer { get; set; }
@@ -32,6 +32,7 @@ public class IndexModel : PageModel
     public async Task OnGetAsync(string sortOrder)
     {
         IdSort = String.IsNullOrEmpty(sortOrder) ? "id_desc": "";
+        BrandSort = sortOrder == "Brand" ? "brand_desc" : "Brand";
         RatingSort = sortOrder == "Rating" ? "rating_desc" : "Rating";
         IQueryable<Beer> beerIQ = from s in _db.Beers select s;
 
@@ -45,6 +46,12 @@ public class IndexModel : PageModel
                 break;
             case "rating_desc":
                 beerIQ = beerIQ.OrderByDescending(s => s.Rating);
+                break;
+            case "Brand":
+                beerIQ = beerIQ.OrderBy(s => s.Brands.Name);
+                break;
+            case "brand_desc":
+                beerIQ = beerIQ.OrderByDescending(s => s.Brands.Name);
                 break;
             default:
                 beerIQ = beerIQ.OrderBy(s => s.Id);
