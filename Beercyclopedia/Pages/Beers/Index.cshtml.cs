@@ -14,6 +14,7 @@ public class IndexModel : PageModel
 
     public string IdSort { get; set; }
     public string BrandSort { get; set; }
+    public string StyleSort { get; set; }
     public string RatingSort { get; set; }
     public string CurrentSort { get; set; }
     public Beer Beer { get; set; }
@@ -33,6 +34,7 @@ public class IndexModel : PageModel
     {
         IdSort = String.IsNullOrEmpty(sortOrder) ? "id_desc": "";
         BrandSort = sortOrder == "Brand" ? "brand_desc" : "Brand";
+        StyleSort = sortOrder == "Style" ? "style_desc" : "Style";
         RatingSort = sortOrder == "Rating" ? "rating_desc" : "Rating";
         IQueryable<Beer> beerIQ = from s in _db.Beers select s;
 
@@ -52,6 +54,12 @@ public class IndexModel : PageModel
                 break;
             case "brand_desc":
                 beerIQ = beerIQ.OrderByDescending(s => s.Brands.Name);
+                break;
+            case "Style":
+                beerIQ = beerIQ.OrderBy(s => s.Styles.Name);
+                break;
+            case "style_desc":
+                beerIQ = beerIQ.OrderByDescending(s => s.Styles.Name);
                 break;
             default:
                 beerIQ = beerIQ.OrderBy(s => s.Id);

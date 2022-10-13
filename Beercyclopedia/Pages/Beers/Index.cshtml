@@ -22,7 +22,7 @@
                 <a asp-page="Index" asp-route-sortOrder="@Model.BrandSort" class="link-dark">Brand</a>
             </th>
             <th>
-                Style
+                <a asp-page="Index" asp-route-sortOrder="@Model.StyleSort" class="link-dark">Style</a>
             </th>
             <th>
                 <a asp-page="Index" asp-route-sortOrder="@Model.RatingSort" class="link-dark">@Html.DisplayNameFor(model => model.Beers[0].Rating)</a>
