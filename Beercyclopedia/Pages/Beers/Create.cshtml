@@ -9,36 +9,36 @@
             <hr/>
             </div>
             <div class="mb-3">
-                <p>Beer Name: </p>
+                <label asp-for="Beer.Name"></label>
                 <input asp-for="Beer.Name" class="form-control"/>
                 <span asp-validation-for="Beer.Name" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <p>Select Brand: </p>
+                <label asp-for="Beer.BrandId"></label>
                 <select asp-for="@Model.Beer.BrandId" asp-items="Model.Brands" class="form-select">
                     <option>Pick the brand...</option>
                 </select>
                 <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <p>Select Style: </p>
+                <label asp-for="Beer.StyleId"></label>
                 <select asp-for="@Model.Beer.StyleId" asp-items="Model.Styles" class="form-select">
                     <option>Pick the style...</option>
                 </select>
                 <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <p>Rating: </p>
+                <label asp-for="Beer.Rating"></label>
                 <input asp-for="Beer.Rating" class="form-control" value="0"/>
                 <span asp-validation-for="Beer.Rating" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <p>IBU: </p>
+                <label asp-for="Beer.IBU"></label>
                 <input asp-for="@Model.Beer.IBU" class="form-control"/>
                 <span asp-validation-for="Beer.IBU" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <p>Description:</p>
+                <label asp-for="Beer.Description"></label>
                 <textarea asp-for="Beer.Description" class="form-control"></textarea>
                 <span asp-validation-for="Beer.Description" class="text-danger"></span>
             </div>
