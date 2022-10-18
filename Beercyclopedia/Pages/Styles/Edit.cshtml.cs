@@ -27,6 +27,7 @@ public class EditModel : PageModel
         {
             _db.Styles.Update(Style);
             await _db.SaveChangesAsync();
+            TempData["success"] = "Style updated successfully";
             return RedirectToPage("Index");
         }
         return Page();

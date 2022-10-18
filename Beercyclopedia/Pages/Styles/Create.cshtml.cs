@@ -26,6 +26,7 @@ public class CreateModel : PageModel
         {
             await _db.Styles.AddAsync(style);
             await _db.SaveChangesAsync();
+            TempData["success"] = "Style added successfully";
             return RedirectToPage("Index");
         }
         return RedirectToPage("Index");

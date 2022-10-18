@@ -34,6 +34,7 @@ public class DeleteModel : PageModel
     {
         _db.Styles.Remove(Style);
         await _db.SaveChangesAsync();
+        TempData["success"] = "Style deleted successfully";
         return RedirectToPage("Index");
 
     }

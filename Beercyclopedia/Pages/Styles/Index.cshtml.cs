@@ -33,6 +33,7 @@ public class IndexModel : PageModel
         };
         await _db.Styles.AddAsync(StyleDuplicate);
         await _db.SaveChangesAsync();
+        TempData["success"] = "Style duplicated successfully";
         return RedirectToPage("Index");
     }
 }
