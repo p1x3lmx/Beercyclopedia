@@ -31,6 +31,7 @@ public class IndexModel : PageModel
         
         await _db.Brands.AddAsync(BrandDuplicate);
         await _db.SaveChangesAsync();
+        TempData["success"] = "Brand duplicated successfully";
         return RedirectToPage("Index");
     }
 }

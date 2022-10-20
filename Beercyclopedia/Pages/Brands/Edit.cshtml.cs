@@ -27,6 +27,7 @@ public class EditModel : PageModel
         {
             _db.Brands.Update(Brand);
             await _db.SaveChangesAsync();
+            TempData["success"] = "Brand edited successfully";
             return RedirectToPage("Index");
         }
 

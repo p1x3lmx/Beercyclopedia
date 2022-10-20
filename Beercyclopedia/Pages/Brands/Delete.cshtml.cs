@@ -33,6 +33,7 @@ public class DeleteModel : PageModel
     {
         _db.Brands.Remove(Brand);
         await _db.SaveChangesAsync();
+        TempData["success"] = "Brand deleted successfully";
         return RedirectToPage("Index");
 
     }

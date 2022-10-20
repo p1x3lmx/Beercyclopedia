@@ -26,6 +26,7 @@ public class CreateModel : PageModel
         {
             await _db.Brands.AddAsync(brand);
             await _db.SaveChangesAsync();
+            TempData["success"] = "Brand added successfully";
             return RedirectToPage("Index");
         }
 
