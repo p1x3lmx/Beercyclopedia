@@ -25,6 +25,7 @@ public class DeleteModel : PageModel
     {
         _db.Beers.Remove(beer);
         await _db.SaveChangesAsync();
+        TempData["success"] = "Beer deleted successfully";
         return RedirectToPage("Index");
     }
     

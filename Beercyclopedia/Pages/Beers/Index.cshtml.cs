@@ -83,6 +83,7 @@ public class IndexModel : PageModel
             Description = Beer.Description
         };
         await _db.Beers.AddAsync(BeerDuplicate);
+        TempData["success"] = "Beer duplicated successfully";
         await _db.SaveChangesAsync();
         return RedirectToPage("Index");
     }

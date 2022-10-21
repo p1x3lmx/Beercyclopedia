@@ -32,6 +32,7 @@ public class EditModel : PageModel
         {
             _db.Beers.Update(Beer);
             await _db.SaveChangesAsync();
+            TempData["success"] = "Beer edited successfully";
             return RedirectToPage("Index");
         }
         Styles = new SelectList(_db.Styles, nameof(Style.Id), nameof(Style.Name));

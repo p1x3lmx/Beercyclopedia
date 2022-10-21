@@ -31,6 +31,7 @@ public class CreateModel : PageModel
         {
             await _db.Beers.AddAsync(beer);
             await _db.SaveChangesAsync();
+            TempData["success"] = "Beer added successfully";
             return RedirectToPage("Index");
         }
         Brands = new SelectList(_db.Brands, nameof(Brand.Id), nameof(Brand.Name));
