@@ -2,52 +2,48 @@
 @model Beercyclopedia.Pages.Beers.CreateModel
 
 <form method="post" xmlns="http://www.w3.org/1999/html">
-    <div class="row">
-        <div class="border pt-3 mt-4">
-            <div class="row pb-2">
-                <h2 class="text-primary pl-3">Add a New Beer</h2>
-                <hr/>
-            </div>
-            <div class="row pb-2">
-                <div asp-validation-summary="All"></div>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Beer.Name"></label>
-                <input asp-for="Beer.Name" class="form-control"/>
-                <span asp-validation-for="Beer.Name" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Beer.BrandId"></label>
-                <select asp-for="@Model.Beer.BrandId" asp-items="Model.Brands" class="form-select">
-                    <option>Pick the brand...</option>
-                </select>
-                <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Beer.StyleId"></label>
-                <select asp-for="@Model.Beer.StyleId" asp-items="Model.Styles" class="form-select">
-                    <option>Pick the style...</option>
-                </select>
-                <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Beer.Rating"></label>
-                <input asp-for="Beer.Rating" class="form-control" value="0"/>
-                <span asp-validation-for="Beer.Rating" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Beer.IBU"></label>
-                <input asp-for="@Model.Beer.IBU" class="form-control"/>
-                <span asp-validation-for="Beer.IBU" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Beer.Description"></label>
-                <textarea asp-for="Beer.Description" class="form-control"></textarea>
-                <span asp-validation-for="Beer.Description" class="text-danger"></span>
-            </div>
-            <a asp-page="Index" class="btn btn-primary m-2">Return</a>
-            <button type="submit" class="btn btn-danger" style="width:150px;">Add Beer</button>
-        </div>  
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Add a New Beer</h2>
+            <hr/>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Beer.Name"></label>
+            <input asp-for="Beer.Name" class="form-control"/>
+            <span asp-validation-for="Beer.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Beer.BrandId"></label>
+            <select asp-for="@Model.Beer.BrandId" asp-items="Model.Brands" class="form-select">
+                <option value="">Select Brand</option>
+            </select>
+            <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Beer.StyleId"></label>
+            <select asp-for="@Model.Beer.StyleId" asp-items="Model.Styles" class="form-select">
+                <option value="">Select Style</option>
+            </select>
+            <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Beer.Rating"></label>
+            <input asp-for="Beer.Rating" class="form-control" value="0"/>
+            <span asp-validation-for="Beer.Rating" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Beer.IBU"></label>
+            <input asp-for="@Model.Beer.IBU" class="form-control"/>
+            <span asp-validation-for="Beer.IBU" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Beer.Description"></label>
+            <textarea asp-for="Beer.Description" class="form-control"></textarea>
+            <span asp-validation-for="Beer.Description" class="text-danger"></span>
+        </div>
+        <a asp-page="Index" class="btn btn-secondary m-2">Return</a>
+        <button type="submit" class="btn btn-primary" style="width:150px;">Add Beer</button>
     </div>
 </form>
 

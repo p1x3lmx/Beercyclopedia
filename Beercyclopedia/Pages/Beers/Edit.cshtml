@@ -2,51 +2,49 @@
 @model Beercyclopedia.Pages.Beers.EditModel
 
 <form method="post">
-    <div class="row">
     <input hidden asp-for="Beer.Id"/>
-    <div class="border pt-3 mt-4">
-        <h2 class="text-primary pl-3">Edit Beer</h2>
+    <div class="border p-3 mt-4">
         <div class="row pb-2">
-        <hr/>
-            <div asp-validation-summary="All"></div>
-            <div class="mb-3">
-                <p>Beer Name:</p>
-                <input asp-for="Beer.Name" class="form-control"/>
-                <span asp-validation-for="Beer.Name" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <p>Select Brand:</p>
-                <select asp-for="Beer.BrandId" asp-items="Model.Brands" class="form-select">
-                    <option>Pick the brand...</option>
-                </select>
-                <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <p>Select Style:</p>
-                <select asp-for="Beer.StyleId" asp-items="Model.Styles" class="form-select">
-                    <option>Pick the style...</option>
-                </select>
-                <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <p>IBU:</p>
-                <input asp-for="Beer.IBU" class="form-control"/>
-                <span asp-validation-for="Beer.IBU" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                Rating:
-                <input type="number" asp-for="Beer.Rating" class="form-control"/>
-                <span asp-validation-for="Beer.Rating" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <p>Beer Description:</p>
-                <textarea asp-for="Beer.Description" class="form-control"></textarea>
-                <span asp-validation-for="Beer.Description" class="text-danger"></span>
-            </div>
+            <h2 class="text-primary pl-3">Edit Beer</h2>
+            <hr/>
         </div>
-        <a asp-page="Index" class="btn btn-primary m-2">Return</a>
-        <button type="submit" class="btn btn-danger" style="width:150px;">Update</button>
-    </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <p>Beer Name:</p>
+            <input asp-for="Beer.Name" class="form-control"/>
+            <span asp-validation-for="Beer.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <p>Select Brand:</p>
+            <select asp-for="Beer.BrandId" asp-items="Model.Brands" class="form-select">
+                <option>Pick the brand...</option>
+            </select>
+            <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <p>Select Style:</p>
+            <select asp-for="Beer.StyleId" asp-items="Model.Styles" class="form-select">
+                <option>Pick the style...</option>
+            </select>
+            <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <p>IBU:</p>
+            <input asp-for="Beer.IBU" class="form-control"/>
+            <span asp-validation-for="Beer.IBU" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            Rating:
+            <input type="number" asp-for="Beer.Rating" class="form-control"/>
+            <span asp-validation-for="Beer.Rating" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <p>Beer Description:</p>
+            <textarea asp-for="Beer.Description" class="form-control"></textarea>
+            <span asp-validation-for="Beer.Description" class="text-danger"></span>
+        </div>
+        <a asp-page="Index" class="btn btn-secondary m-2">Return</a>
+        <button type="submit" class="btn btn-primary" style="width:150px;">Update</button>
     </div>
 </form>
 

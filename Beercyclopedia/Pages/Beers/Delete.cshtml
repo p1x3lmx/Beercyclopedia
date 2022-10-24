@@ -3,19 +3,15 @@
 @model Beercyclopedia.Pages.Beers.DeleteModel
 
 <form method="post" xmlns="http://www.w3.org/1999/html">
-    <div class="row">
-        <div class="border pt-3 mt-4">
-            <div class="row pb-2">
-                <h1 class="text-primary">Delete Beer</h1>
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h1 class="text-primary">Delete Beer</h1>
             <hr/>
-            </div>
-            <div class="row pb-2">
-                <div class="mb3">
-                    <h3>Please confirm delete of @Model.Beer.Name?</h3>
-                </div>
-            </div>
-            <a asp-page="Index" class="btn btn-primary m-2">Return</a>
-            <button type="submit" class="btn btn-danger" style="width:150px;">Yes Delete</button>
         </div>
+        <div class="mb3">
+            <h3>Please confirm delete of @Model.Beer.Name?</h3>
+        </div>
+        <a asp-page="Index" class="btn btn-secondary m-2">Return</a>
+        <button type="submit" class="btn btn-primary" style="width:150px;">Yes Delete</button>
     </div>
 </form>
