@@ -4,25 +4,23 @@
 
 <form method="post">
     <input hidden asp-for="Style.Id"/>
-    <div class="row">
-        <div class="border pt-3 mt-4">
-            <div class="row pb-2">
-                <h2 class="text-primary pl-3">Delete Style</h2>
-                <hr/>
-                <div asp-validation-summary="All"></div>
-                <div class="mb-3">
-                    @{
-                        if (Model.IsInUse)
-                        {
-                            <p>The Style is in use you can not delete this. </p>
-                        }
-                        else  
-                        {
-                            <p>The style is not used it's safe to delete.</p>
-                            <p>The Style to delete is @Model.Style.Name</p>
-                        }
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Delete Style</h2>
+            <hr/>
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3">
+                @{
+                    if (Model.IsInUse)
+                    {
+                        <p>The Style is in use you can not delete this. </p>
                     }
-                </div>
+                    else  
+                    {
+                        <p>The style is not used it's safe to delete.</p>
+                        <p>The Style to delete is @Model.Style.Name</p>
+                    }
+                }
             </div>
             <div class="mb-3">
                 <a asp-page="Index" class="btn btn-primary m-2">Return</a>
