@@ -12,16 +12,36 @@ public class IndexModel : PageModel
     public IEnumerable<Style> Styles;
 
     public Style Style { get; set; }
-
+    public String StyleSort { get; set; }
     public IndexModel(ApplicationDbContext db)
     {
         _db = db;
     }
 
-    public void OnGet()
+    // public void OnGet()
+    // {
+    //     Styles = _db.Styles;
+    // }
+
+    public async Task OnGetAsync(string sortOrder)
     {
-        Styles = _db.Styles;
+        StyleSort = String.IsNullOrEmpty(sortOrder) ? "style_desc" : "";
+        IQueryable<Style> styleIQ = from s in _db.Styles select s;
+
+        switch (sortOrder)
+        {
+            case "style_desc":
+                styleIQ = styleIQ.OrderByDescending(s => s.Name);
+                break;
+            default:
+                styleIQ = styleIQ.OrderBy(s => s.Name);
+                break;
+        }
+
+        Styles = await styleIQ.AsNoTracking().ToListAsync();
+
     }
+    
     
     public async Task<IActionResult> OnPostDuplicate(int id)
     {
