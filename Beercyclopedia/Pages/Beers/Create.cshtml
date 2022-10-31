@@ -16,14 +16,14 @@
         <div class="mb-3">
             <label asp-for="Beer.BrandId"></label>
             <select asp-for="@Model.Beer.BrandId" asp-items="Model.Brands" class="form-select">
-                <option value="">Select Brand</option>
+                <option value="" disabled selected>Select Brand</option>
             </select>
             <span asp-validation-for="Beer.BrandId" class="text-danger"></span>
         </div>
         <div class="mb-3">
             <label asp-for="Beer.StyleId"></label>
             <select asp-for="@Model.Beer.StyleId" asp-items="Model.Styles" class="form-select">
-                <option value="">Select Style</option>
+                <option value="" disabled selected>Select Style</option>
             </select>
             <span asp-validation-for="Beer.StyleId" class="text-danger"></span>
         </div>
