@@ -31,11 +31,16 @@ public class DeleteModel : PageModel
     
     public async Task<IActionResult> OnPost()
     {
-        _db.Brands.Remove(Brand);
-        await _db.SaveChangesAsync();
-        TempData["success"] = "Brand deleted successfully";
-        return RedirectToPage("Index");
+        var branFromDb = _db.Brands.Find(Brand.Id);
+        if (branFromDb != null)
+        {
+            _db.Brands.Remove(branFromDb);
+            await _db.SaveChangesAsync();
+            TempData["success"] = "Brand deleted successfully";
+            return RedirectToPage("Index");
+        }
 
+        return Page();
     }
         
 }
