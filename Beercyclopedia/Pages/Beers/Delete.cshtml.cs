@@ -9,7 +9,7 @@ namespace Beercyclopedia.Pages.Beers;
 public class DeleteModel : PageModel
 {
     private readonly ApplicationDbContext _db;
-    public Beer Beer { get; set; }
+    [BindProperty] public Beer Beer { get; set; }
 
     public DeleteModel(ApplicationDbContext db)
     {
@@ -20,13 +20,17 @@ public class DeleteModel : PageModel
     {
         Beer = _db.Beers.Find(id);
     }
-    
-    public async Task<IActionResult> OnPost(Beer beer)
+
+    public async Task<IActionResult> OnPost()
     {
-        _db.Beers.Remove(beer);
-        await _db.SaveChangesAsync();
-        TempData["success"] = "Beer deleted successfully";
-        return RedirectToPage("Index");
+        var beerFromDb = _db.Beers.Find(Beer.Id);
+        if (beerFromDb != null)
+        {
+            _db.Beers.Remove(beerFromDb);
+            await _db.SaveChangesAsync();
+            TempData["success"] = "Beer deleted successfully";
+            return RedirectToPage("Index");
+        }
+        return Page();
     }
-    
 }
