@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
+using Beercyclopedia.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
-namespace Beercyclopedia.Model;
+namespace Beercyclopedia.Models;
 
 public class Beer
 {

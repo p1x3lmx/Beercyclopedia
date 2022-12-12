@@ -1,5 +1,6 @@
-using Beercyclopedia.Data;
-using Beercyclopedia.Model;
+using Beercyclopedia.DataAcess;
+using Beercyclopedia.DataAcess.Data;
+using Beercyclopedia.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;

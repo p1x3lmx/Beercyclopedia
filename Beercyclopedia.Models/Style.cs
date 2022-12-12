@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Beercyclopedia.Model;
+namespace Beercyclopedia.Models;
 
 public class Style
 {

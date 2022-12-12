@@ -1,7 +1,7 @@
-using Beercyclopedia.Model;
+using Beercyclopedia.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Beercyclopedia.Data;
+namespace Beercyclopedia.DataAcess.Data;
 
 public class ApplicationDbContext : DbContext
 {

@@ -1,4 +1,4 @@
-using Beercyclopedia.Data;
+using Beercyclopedia.DataAcess.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
